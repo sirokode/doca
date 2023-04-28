@@ -22,15 +22,15 @@ This is deployed by defaults, and operates as database root
 
 ### Springboot restful service
 
-The image is build using the dockert file within the project. Take a look at that docker file, it copies a war file( that which was packaged) from the target folder to the final image
-folder. This means you need to have this war file prebuild. Ordinarily, the package step of Jenkins would have build this war file, but in this project, we will manually build it 
+The image is build using the dockert file within the project. Take a look at that docker file, it copies an application file( in this case a jar file, that which was packaged) from the target folder to the final image 
+folder. This means you need to have this jar file prebuild. Ordinarily, the package step of Jenkins would have build this jar (or war file), but in this project, we will manually build it 
 using maven, `clean mvn package -DskipTests`
 
-The container will depend omn mysqldb and from port 8080, and use th same networl the mysqldb is using
+The container will depends_on on the mysqldb service and be accessible at port 8080, and use th same network the mysqldb is using
 
 ## Network
 
-There is one network, which is what the two will use to communicate
+There is one network, which is what the two will use to communicate. For services to communicate, they do so over a network.
 
 springboot-mysql-net
 
@@ -53,7 +53,15 @@ springboot-mysql-net
 ## Test that the application is running
 Go to IP:8080/api/users
 
-If the site responds( even with no data), it means everything is workign well
+If the site responds( even with no data), it means everything is workign well.
+
+### Extra 
+You could play around with the application by adding data to the database. To do so, do a POST request to the users table. 
+The application is a RESTful, meaning it exposed not website but an API way to interact with it. You could do this via Postman ( an aplplication for interacting with REST APIs) or just do curl POST on the command line:
+
+`curl -d "firstName=Aplo&lastName=Namgoi&email=aplo@namgoi.ke" -X POST https://IP:8080/api/users`
+
+The above should create a user, and you can see(get) that user by going  to IP:8080/api/users/1
 
 ## Shutdown the containers
 Issue the command `docker-compose down`

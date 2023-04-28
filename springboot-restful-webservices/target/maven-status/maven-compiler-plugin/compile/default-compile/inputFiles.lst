@@ -1,0 +1,6 @@
+/Users/mcowiti/Desktop/docker-compose-egs/doca/springboot-restful-webservices/src/main/java/net/javaguides/springboot/service/UserService.java
+/Users/mcowiti/Desktop/docker-compose-egs/doca/springboot-restful-webservices/src/main/java/net/javaguides/springboot/SpringbootRestfulWebservicesApplication.java
+/Users/mcowiti/Desktop/docker-compose-egs/doca/springboot-restful-webservices/src/main/java/net/javaguides/springboot/entity/User.java
+/Users/mcowiti/Desktop/docker-compose-egs/doca/springboot-restful-webservices/src/main/java/net/javaguides/springboot/controller/UserController.java
+/Users/mcowiti/Desktop/docker-compose-egs/doca/springboot-restful-webservices/src/main/java/net/javaguides/springboot/repository/UserRepository.java
+/Users/mcowiti/Desktop/docker-compose-egs/doca/springboot-restful-webservices/src/main/java/net/javaguides/springboot/service/impl/UserServiceImpl.java

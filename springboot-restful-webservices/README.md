@@ -5,13 +5,14 @@ The RESTful web service appliation (microservice) will be depending on the mySQL
 
 These two containers need to communicate together. Docker compose is useful for setting this up very easily.
 
-Note that with docker compose, you do not need to have docker swarm up. So any, VM with docker installed should work.
 
-NOTE: You will run into at least one problem when doing this, and i expect you to figure out what it is and fix it.
+Note that with docker compose, you do not need to have docker swarm up. So any VM with docker installed should work.
 
-There is a docker compose file, docker-compose.yml. This is the file you will run.
+NOTE: You will run into at least one problem when doing this, and I expect you to figure out what it is and fix it.
 
-This file defines the services, network and dependencies between the services:
+There is a docker compose file provided, docker-compose.yml. This is the file you will run.
+
+This file defines the services, network and dependencies between the two services:
 
 ## Services
 Two services are set up, mysqldb and springboot-restful-webservices
@@ -22,11 +23,11 @@ This is deployed by defaults, and operates as database root
 
 ### Springboot restful service
 
-The image is build using the dockert file within the project. Take a look at that docker file, it copies an application file( in this case a jar file, that which was packaged) from the target folder to the final image 
-folder. This means you need to have this jar file prebuild. Ordinarily, the package step of Jenkins would have build this jar (or war file), but in this project, we will manually build it 
-using maven, `clean mvn package -DskipTests`
+The image is build using the Dockerfile file within the project. Take a look at that Dockerfile, it copies an application file ( in this case a jar file, that which was packaged) from the target folder to the final image 
+folder. Then builds an image based on the Dockerfile. This means you need to have this jar file prebuild. Ordinarily, the package step of Jenkins would have build this jar (or war file), but in this project, we will manually build it 
+using maven, `clean mvn package -DskipTests`. Note the java and Maven are needed to perform a build for this particular project.
 
-The container will depends_on on the mysqldb service and be accessible at port 8080, and use th same network the mysqldb is using
+The container depends on (see depends_on)  the mysqldb service and be accessible at port 8080, and use th same network the mysqldb is using
 
 ## Network
 

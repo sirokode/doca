@@ -60,7 +60,7 @@ If the site responds( even with no data), it means everything is workign well.
 You could play around with the application by adding data to the database. To do so, do a POST request to the users table. 
 The application is a RESTful, meaning it exposed not website but an API way to interact with it. You could do this via Postman ( an aplplication for interacting with REST APIs) or just do curl POST on the command line:
 
-`curl -d "firstName=Aplo&lastName=Namgoi&email=aplo@namgoi.ke" -X POST https://IP:8080/api/users`
+`curl -d {"firstName": "aplo","lastName":"namgoi","email": "aplo@namgoi.ke"} -H 'Content-Type: application/json' -X POST https://IP:8080/api/users`
 
 The above should create a user, and you can see(get) that user by going  to IP:8080/api/users/1
 

@@ -11,9 +11,9 @@ NOTE: You will run into at least one problem when doing this, and i expect you t
 
 There is a docker compose file, docker-compose.yml. This is the file you will run.
 
-This file defines the serives, network and dependencies between the services:
+This file defines the services, network and dependencies between the services:
 
-## services
+## Services
 Two services are set up, mysqldb and springboot-restful-webservices
 
 ### mysqldb
@@ -38,7 +38,8 @@ springboot-mysql-net
 * Must have a VM with docker and docker compose
 * You need to package the application war file before running the docker compose file
 * * You would need to have java and maven installed- that is a Jenkins type environment. 
-* * To avaoid this, there is a pre-build war file in the targer folder, you can ust use that. 
+* * This means installin Java (v17) and Maven, and set the JAVA_HOME, MAVEN_HOME, refer to the Jenkins lesson
+* * To avoid this, there is a pre-build war file in the targer folder, you can ust use that. 
 
 ## Steps
 
@@ -46,7 +47,7 @@ springboot-mysql-net
 * Go to the springboot-restful-webservices/ folder
 * Manually package the application by running the following maven package command: `mvn clean package -DskipTests`
 * * A war file should be generated in the target/ folder
-* * BUT That step will fail if you do not have java and Maven, so just depend on the prebuild war file
+* * BUT That step will fail if you do not have java and Maven, so just depend on the pre-build war file
 * Start the two containers by issuing `docker-compose up -d`
 
 ## Test that the application is running
